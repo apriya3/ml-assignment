@@ -1,8 +1,10 @@
 import torch.nn as nn
 import torch
 from flask import Flask, render_template, request, redirect, url_for
+import pkg_resources
 
-app = Flask(__name__)
+templateFolder = pkg_resources.resource_filename(__name__, 'templates')
+app = Flask(__name__, template_folder=templateFolder)
 
 class IncomeClassification(nn.Module):
     def __init__(self):
